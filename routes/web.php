@@ -38,4 +38,5 @@ Route::middleware('auth')->group(function () {
     Route::post('store', [PersonController::class, 'store'])->name('person.store');
     Route::get('edit/{person}', [PersonController::class, 'edit'])->name('person.edit');
     Route::patch('update/{person}', [PersonController::class, 'update'])->name('person.update');
+    Route::get('delete/{person}', [PersonController::class, 'destroy'])->name('person.delete');
 });

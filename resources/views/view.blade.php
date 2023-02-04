@@ -28,6 +28,13 @@
                             <p class="card-text">
                                 {{ __('You are logged in!') }}
                             </p>
+
+                            @if(session()->has('person-deleted'))
+                                <div class="alert alert-warning">
+                                    {{ session()->get('person-deleted') }}
+                                </div>
+                            @endif
+
                             <table class="table" id="peopleTable">
                                 <thead>
                                 <tr>
@@ -48,8 +55,9 @@
                                         <td>
                                             <a href="{{ route('person.edit', $person->id) }}"
                                                class="btn btn-primary btn-block" role="button">{{ __('Edit') }}</a>
-                                            <button type="submit"
-                                                    class="btn btn-danger btn-block">{{ __('Delete') }}</button>
+                                            <a onclick="return confirm('Are you sure?')"
+                                               href="{{ route('person.delete', $person->id) }}""
+                                            class="btn btn-danger btn-block">{{ __('Delete') }}</a>
                                         </td>
                                     </tr>
                                 @endforeach

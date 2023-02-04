@@ -51,7 +51,7 @@ class PersonController extends Controller
             'nationality' => $request->nationality,
         ]);
 
-        return back()->with('person-added', "Person registered successfully");
+        return back()->with('person-added', "Person registered successfully!");
     }
 
     /**
@@ -90,17 +90,18 @@ class PersonController extends Controller
             'name', 'id_number', 'dob', 'age', 'mobile', 'address', 'religion', 'nationality'
         ]));
 
-        return back()->with('person-updated', "Person updated successfully");
+        return back()->with('person-updated', "Person updated successfully!");
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Person $person
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Person $person)
     {
-        //
+        $person->delete();
+        return back()->with('person-deleted', "Person deleted successfully!");
     }
 }
