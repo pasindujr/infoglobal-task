@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('styles')
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+
+@endsection
+
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -23,8 +28,33 @@
                             <p class="card-text">
                                 {{ __('You are logged in!') }}
                             </p>
-
-                            {{ $people }}
+                            <table class="table" id="peopleTable">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>NIC Number</th>
+                                    <th>Mobile Number</th>
+                                    <th>DOB</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($people as $person)
+                                    <tr>
+                                        <td>{{ $person->name }}</td>
+                                        <td>{{ $person->id_number }}</td>
+                                        <td>{{ $person->mobile }}</td>
+                                        <td>{{ $person->dob }}</td>
+                                        <td>
+                                            <button type="submit"
+                                                    class="btn btn-primary btn-block">{{ __('Edit') }}</button>
+                                            <button type="submit"
+                                                    class="btn btn-danger btn-block">{{ __('Delete') }}</button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
 
                         </div>
                     </div>
@@ -34,5 +64,15 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="//cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+
+    <script>$(document).ready(function () {
+            $.noConflict();
+            var table = $('#peopleTable').DataTable();
+        });
+    </script>
 @endsection
 
