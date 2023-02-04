@@ -42,7 +42,9 @@
                                     <th>NIC Number</th>
                                     <th>Mobile Number</th>
                                     <th>DOB</th>
+                                    @can('manage-person')
                                     <th>Actions</th>
+                                    @endcan
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -52,13 +54,15 @@
                                         <td>{{ $person->id_number }}</td>
                                         <td>{{ $person->mobile }}</td>
                                         <td>{{ $person->dob }}</td>
+                                        @can('manage-person')
                                         <td>
                                             <a href="{{ route('person.edit', $person->id) }}"
                                                class="btn btn-primary btn-block" role="button">{{ __('Edit') }}</a>
                                             <a onclick="return confirm('Are you sure?')"
-                                               href="{{ route('person.delete', $person->id) }}""
+                                               href="{{ route('person.delete', $person->id) }}"
                                             class="btn btn-danger btn-block">{{ __('Delete') }}</a>
                                         </td>
+                                        @endcan
                                     </tr>
                                 @endforeach
                                 </tbody>

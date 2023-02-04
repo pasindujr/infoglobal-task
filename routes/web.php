@@ -33,10 +33,10 @@ Route::middleware('auth')->group(function () {
     Route::get('profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
 
-    //Person routes
-    Route::get('view', [PersonController::class, 'index'])->name('view');
-    Route::post('store', [PersonController::class, 'store'])->name('person.store');
-    Route::get('edit/{person}', [PersonController::class, 'edit'])->name('person.edit');
-    Route::patch('update/{person}', [PersonController::class, 'update'])->name('person.update');
-    Route::get('delete/{person}', [PersonController::class, 'destroy'])->name('person.delete');
+    //People routes
+    Route::get('people/view', [PersonController::class, 'index'])->name('view');
+    Route::post('people/store', [PersonController::class, 'store'])->name('person.store');
+    Route::get('people/edit/{person}', [PersonController::class, 'edit'])->name('person.edit');
+    Route::patch('people/update/{person}', [PersonController::class, 'update'])->name('person.update');
+    Route::get('people/delete/{person}', [PersonController::class, 'destroy'])->name('person.delete');
 });

@@ -15,19 +15,10 @@ class PersonController extends Controller
      */
     public function index()
     {
+
         $people = Person::all();
 
         return view('view', compact('people'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -38,6 +29,8 @@ class PersonController extends Controller
      */
     public function store(StorePersonRequest $request)
     {
+        $this->authorize('manage-person');
+
         $request->validated();
 
         Person::create([
@@ -73,6 +66,8 @@ class PersonController extends Controller
      */
     public function edit(Person $person)
     {
+        $this->authorize('manage-person');
+
         return view('edit', compact('person'));
     }
 
@@ -85,6 +80,7 @@ class PersonController extends Controller
      */
     public function update(UpdatePersonRequest $request, Person $person)
     {
+        $this->authorize('manage-person');
 
         $person->update($request->only([
             'name', 'id_number', 'dob', 'age', 'mobile', 'address', 'religion', 'nationality'
@@ -101,6 +97,7 @@ class PersonController extends Controller
      */
     public function destroy(Person $person)
     {
+        $this->authorize('manage-person');
         $person->delete();
         return back()->with('person-deleted', "Person deleted successfully!");
     }
