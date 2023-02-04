@@ -36,4 +36,6 @@ Route::middleware('auth')->group(function () {
     //Person routes
     Route::get('view', [PersonController::class, 'index'])->name('view');
     Route::post('store', [PersonController::class, 'store'])->name('person.store');
+    Route::get('edit/{person}', [PersonController::class, 'edit'])->name('person.edit');
+    Route::patch('update/{person}', [PersonController::class, 'update'])->name('person.update');
 });

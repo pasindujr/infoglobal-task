@@ -33,7 +33,7 @@ class PersonController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePersonRequest  $request
+     * @param \App\Http\Requests\StorePersonRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StorePersonRequest $request)
@@ -57,7 +57,7 @@ class PersonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Person  $person
+     * @param \App\Models\Person $person
      * @return \Illuminate\Http\Response
      */
     public function show(Person $person)
@@ -68,30 +68,35 @@ class PersonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Person  $person
-     * @return \Illuminate\Http\Response
+     * @param \App\Models\Person $person
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Person $person)
     {
-        //
+        return view('edit', compact('person'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePersonRequest  $request
-     * @param  \App\Models\Person  $person
-     * @return \Illuminate\Http\Response
+     * @param \App\Http\Requests\UpdatePersonRequest $request
+     * @param \App\Models\Person $person
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdatePersonRequest $request, Person $person)
     {
-        //
+
+        $person->update($request->only([
+            'name', 'id_number', 'dob', 'age', 'mobile', 'address', 'religion', 'nationality'
+        ]));
+
+        return back()->with('person-updated', "Person updated successfully");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Person  $person
+     * @param \App\Models\Person $person
      * @return \Illuminate\Http\Response
      */
     public function destroy(Person $person)

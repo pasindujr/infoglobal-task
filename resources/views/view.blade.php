@@ -46,8 +46,8 @@
                                         <td>{{ $person->mobile }}</td>
                                         <td>{{ $person->dob }}</td>
                                         <td>
-                                            <button type="submit"
-                                                    class="btn btn-primary btn-block">{{ __('Edit') }}</button>
+                                            <a href="{{ route('person.edit', $person->id) }}"
+                                               class="btn btn-primary btn-block" role="button">{{ __('Edit') }}</a>
                                             <button type="submit"
                                                     class="btn btn-danger btn-block">{{ __('Delete') }}</button>
                                         </td>
