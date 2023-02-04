@@ -39,6 +39,7 @@ class PersonController extends Controller
             'dob' => $request->dob,
             'age' => $request->age,
             'mobile' => $request->mobile,
+            'gender' => $request->gender,
             'address' => $request->address,
             'religion' => $request->religion,
             'nationality' => $request->nationality,
@@ -83,7 +84,7 @@ class PersonController extends Controller
         $this->authorize('manage-person');
 
         $person->update($request->only([
-            'name', 'id_number', 'dob', 'age', 'mobile', 'address', 'religion', 'nationality'
+            'name', 'id_number', 'dob', 'age', 'mobile', 'gender', 'address', 'religion', 'nationality'
         ]));
 
         return back()->with('person-updated', "Person updated successfully!");

@@ -96,6 +96,18 @@
                                     </div>
 
                                     <div class="input-group mb-3">
+                                        <input disabled type="text" name="gender"
+                                               class="form-control
+                                               placeholder="{{ __('Gender') }}" autocomplete="gender"
+                                        value="{{  $person->gender }}" autofocus>
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-venus-mars"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
                                         <input disabled type="text" name="address"
                                                class="form-control
                                                placeholder="{{ __('Religion') }}" autocomplete="address"

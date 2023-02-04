@@ -1,10 +1,5 @@
 @extends('layouts.app')
 
-@section('styles')
-    <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
-
-@endsection
-
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -76,6 +71,10 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+@endsection
+
+@section('styles')
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
 @endsection
 
 @section('scripts')

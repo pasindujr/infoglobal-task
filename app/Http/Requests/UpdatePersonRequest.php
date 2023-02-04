@@ -29,9 +29,10 @@ class UpdatePersonRequest extends FormRequest
             'dob' => 'required|date',
             'age' => 'required|max:255',
             'mobile' => 'required|max:255',
-            'address' => 'max:255',
-            'religion' => 'max:255',
-            'nationality' => 'max:255',
+            'gender' => 'required|max:255',
+            'address' => 'required|max:255',
+            'religion' => 'required|max:255',
+            'nationality' => 'required|max:255',
         ];
     }
 }

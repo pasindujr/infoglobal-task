@@ -117,6 +117,22 @@
                                     </div>
 
                                     <div class="input-group mb-3">
+                                        <select type="text" name="gender"
+                                                class="form-control @error('gender') is-invalid @enderror"
+                                                autocomplete="religion">
+                                            <option value={{ null }}>Select Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                        @error('gender')
+                                        <span class="error invalid-feedback">
+                    {{ $message }}
+                </span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="input-group mb-3">
                                         <input type="text" name="address"
                                                class="form-control @error('address') is-invalid @enderror"
                                                placeholder="{{ __('Address') }}" autocomplete="address"
