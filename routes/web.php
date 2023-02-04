@@ -39,4 +39,5 @@ Route::middleware('auth')->group(function () {
     Route::get('people/edit/{person}', [PersonController::class, 'edit'])->name('person.edit');
     Route::patch('people/update/{person}', [PersonController::class, 'update'])->name('person.update');
     Route::get('people/delete/{person}', [PersonController::class, 'destroy'])->name('person.delete');
+    Route::get('people/view/{person}', [PersonController::class, 'show'])->name('person.show');
 });
