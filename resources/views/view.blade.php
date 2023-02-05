@@ -24,12 +24,6 @@
                                 {{ __('You are logged in!') }}
                             </p>
 
-                            @if(session()->has('person-deleted'))
-                                <div class="alert alert-warning">
-                                    {{ session()->get('person-deleted') }}
-                                </div>
-                            @endif
-
                             <table class="table" id="peopleTable">
                                 <thead>
                                 <tr>
@@ -75,15 +69,37 @@
 
 @section('styles')
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 @endsection
 
 @section('scripts')
     <script type="text/javascript" src="//cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
 
-    <script>$(document).ready(function () {
+    <script>
+        $(document).ready(function () {
             $.noConflict();
             var table = $('#peopleTable').DataTable();
         });
     </script>
+
+    @if ($message = Session::get('person-deleted'))
+        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script>
+            toastr.options = {
+                "closeButton": true,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut",
+                "progressBar": true,
+            }
+
+            toastr.info('{{ $message }}')
+        </script>
+    @endif
 @endsection
 

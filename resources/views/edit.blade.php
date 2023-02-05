@@ -24,12 +24,6 @@
                                 {{ __('You are logged in!') }}
                             </p>
 
-                            @if(session()->has('person-updated'))
-                                <div class="alert alert-success">
-                                    {{ session()->get('person-updated') }}
-                                </div>
-                            @endif
-
                             <div class="card-body login-card-body">
                                 <p class="login-box-msg">{{ __('Update') }}</p>
 
@@ -125,9 +119,14 @@
                                                 class="form-control @error('gender') is-invalid @enderror"
                                                 autocomplete="religion">
                                             <option value={{ null }}>Select Gender</option>
-                                            <option @if($person->gender == 'male') selected @endif value="male">Male</option>
-                                            <option @if($person->gender == 'female') selected @endif value="female">Female</option>
-                                            <option @if($person->gender == 'other') selected @endif value="other">Other</option>
+                                            <option @if($person->gender == 'male') selected @endif value="male">Male
+                                            </option>
+                                            <option @if($person->gender == 'female') selected @endif value="female">
+                                                Female
+                                            </option>
+                                            <option @if($person->gender == 'other') selected @endif value="other">
+                                                Other
+                                            </option>
                                         </select>
                                         @error('gender')
                                         <span class="error invalid-feedback">
@@ -224,5 +223,31 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+@endsection
+
+@section('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+@endsection
+
+@section('scripts')
+    @if ($message = Session::get('person-updated'))
+        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script>
+            toastr.options = {
+                "closeButton": true,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut",
+                "progressBar": true,
+            }
+
+            toastr.success('{{ $message }}')
+        </script>
+    @endif
 @endsection
 

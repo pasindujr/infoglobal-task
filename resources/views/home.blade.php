@@ -24,12 +24,6 @@
                                 {{ __('You are logged in!') }}
                             </p>
 
-                            @if(session()->has('person-added'))
-                                <div class="alert alert-success">
-                                    {{ session()->get('person-added') }}
-                                </div>
-                            @endif
-
                             <div class="card-body login-card-body">
                                 <p class="login-box-msg">{{ __('Register') }}</p>
 
@@ -202,4 +196,30 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+@endsection
+
+@section('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+@endsection
+
+@section('scripts')
+    @if ($message = Session::get('person-added'))
+        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script>
+            toastr.options = {
+                "closeButton": true,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut",
+                "progressBar": true,
+            }
+
+            toastr.success('{{ $message }}')
+        </script>
+    @endif
 @endsection
