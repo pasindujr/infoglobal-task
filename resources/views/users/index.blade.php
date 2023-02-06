@@ -19,25 +19,23 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <div class="alert alert-info">
-                        Sample table page
-                    </div>
-
                     <div class="card">
                         <div class="card-body p-0">
 
                             <table class="table">
                                 <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                    </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($users as $user)
                                     <tr>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
+                                        <td>{{ $user->role }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
