@@ -34,8 +34,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">{{ __('By Age') }}</h5>
-                            <div id="ageChart"></div>
+                            <h5 class="card-title">{{ __('By Birth Month') }}</h5>
+                            <div id="monthChart"></div>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
-        var optionsForAgeChart = {
+        let optionsForAgeChart = {
             chart: {
                 type: 'bar'
             },
@@ -70,8 +70,31 @@
             }
         }
 
-        var ageChart = new ApexCharts(document.querySelector("#ageChart"), optionsForAgeChart);
+        let optionsForMonthsChart = {
+            chart: {
+                type: 'bar'
+            },
+            yaxis: {
+                title: {
+                    text: 'Count'
+                }
+            },
+            series: [{
+                name: 'sales',
+                data: {{ json_encode($monthsCountArray) }}
+            }],
+            xaxis: {
+                categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                title: {
+                    text: 'Months'
+                }
+            },
+        }
+
+        let ageChart = new ApexCharts(document.querySelector("#ageChart"), optionsForAgeChart);
+        let monthChart = new ApexCharts(document.querySelector("#monthChart"), optionsForMonthsChart);
 
         ageChart.render();
+        monthChart.render();
     </script>
 @endsection
