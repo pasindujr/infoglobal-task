@@ -49,7 +49,17 @@ class InsightController extends Controller
 
         $monthsCountArray = [$monthsCount->january, $monthsCount->february, $monthsCount->march, $monthsCount->april, $monthsCount->may, $monthsCount->june, $monthsCount->july, $monthsCount->august, $monthsCount->september, $monthsCount->october, $monthsCount->november, $monthsCount->december];
 
+        $religionCount = DB::table('people')
+            ->select(DB::raw("
+            COUNT(CASE WHEN religion = 'buddhist' THEN 1 END) AS 'buddhist',
+            COUNT(CASE WHEN religion = 'christian' THEN 1 END) AS 'christian',
+            COUNT(CASE WHEN religion = 'muslim' THEN 1 END) AS 'muslim',
+            COUNT(CASE WHEN religion = 'hindu' THEN 1 END) AS 'hindu',
+            COUNT(CASE WHEN religion = 'other' THEN 1 END) AS 'other'"
+            ))->first();
 
-        return view('insight', compact('agesArray', 'monthsCountArray'));
+        $religionCountArray = [$religionCount->buddhist, $religionCount->christian, $religionCount->muslim, $religionCount->hindu, $religionCount->other];
+
+        return view('insight', compact('agesArray', 'monthsCountArray', 'religionCountArray'));
     }
 }

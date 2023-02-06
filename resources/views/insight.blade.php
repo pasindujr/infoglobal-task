@@ -42,6 +42,20 @@
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ __('By Religion') }}</h5>
+                            <div id="religionChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
 @endsection
@@ -91,10 +105,32 @@
             },
         }
 
+        let optionsForReligionChart = {
+            series: {{ json_encode($religionCountArray) }},
+            chart: {
+                width: 700,
+                type: 'pie',
+            },
+            labels: ['Buddhist', 'Christian', 'Muslim', 'Hindu', 'Other'],
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        };
+
         let ageChart = new ApexCharts(document.querySelector("#ageChart"), optionsForAgeChart);
         let monthChart = new ApexCharts(document.querySelector("#monthChart"), optionsForMonthsChart);
+        let religionChart = new ApexCharts(document.querySelector("#religionChart"), optionsForReligionChart);
 
         ageChart.render();
         monthChart.render();
+        religionChart.render();
     </script>
 @endsection
