@@ -27,7 +27,7 @@ class UpdatePersonRequest extends FormRequest
             'name' => 'required|max:255',
             'id_number' => 'required|max:15',
             'dob' => 'required|date',
-            'age' => 'required|max:255',
+            'age' => 'required|max:255|integer|between:12,100',
             'mobile' => 'required|max:255',
             'gender' => 'required|max:255',
             'address' => 'required|max:255',

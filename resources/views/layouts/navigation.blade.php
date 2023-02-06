@@ -41,10 +41,10 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{ route('about') }}" class="nav-link">
-                    <i class="nav-icon far fa-address-card"></i>
+                <a href="{{ route('insight') }}" class="nav-link">
+                    <i class="nav-icon far fa-chart-bar"></i>
                     <p>
-                        {{ __('About us') }}
+                        {{ __('Insight') }}
                     </p>
                 </a>
             </li>

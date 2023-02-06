@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InsightController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -26,7 +27,6 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
-    Route::view('about', 'about')->name('about');
 
     Route::get('users', [UserController::class, 'index'])->name('users.index');
 
@@ -40,4 +40,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('people/update/{person}', [PersonController::class, 'update'])->name('person.update');
     Route::get('people/delete/{person}', [PersonController::class, 'destroy'])->name('person.delete');
     Route::get('people/view/{person}', [PersonController::class, 'show'])->name('person.show');
+    Route::get('insight', InsightController::class)->name('insight');
 });
