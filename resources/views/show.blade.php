@@ -27,7 +27,8 @@
                                 <form>
 
                                     <div class="input-group mb-3">
-                                        <input disabled type="text" name="name"
+                                        <input data-toggle="tooltip" data-placement="top" title="Name" disabled
+                                               type="text" name="name"
                                                class="form-control placeholder="{{ __('Name') }}" required
                                         autocomplete="name"
                                         value="{{ old('name', $person->name) }}">
@@ -40,7 +41,8 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input disabled type="number" name="id_number"
+                                        <input data-toggle="tooltip" data-placement="top" title="NIC Number" disabled
+                                               type="number" name="id_number"
                                                class="form-control placeholder="{{ __('ID Number') }}" required
                                         autocomplete="id_number"
                                         value="{{ old('id_number', $person->id_number) }}">
@@ -52,14 +54,16 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input disabled type="date" name="dob"
+                                        <input data-toggle="tooltip" data-placement="top" title="Date Of Birth" disabled
+                                               type="date" name="dob"
                                                class="form-control
                                                placeholder="{{ __('Date of birth') }}" required autocomplete="dob"
                                         value="{{ old('dob', $person->dob) }}">
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input disabled type="number" name="age"
+                                        <input data-toggle="tooltip" data-placement="top" title="Age" disabled
+                                               type="number" name="age"
                                                class="form-control
                                                placeholder="{{ __('Age') }}" required autocomplete="age"
                                         value="{{ old('age', $person->age) }}">
@@ -71,7 +75,8 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input disabled type="number" name="mobile"
+                                        <input data-toggle="tooltip" data-placement="top" title="Mobile Number" disabled
+                                               type="number" name="mobile"
                                                class="form-control
                                                placeholder="{{ __('Mobile Number') }}" required autocomplete="mobile"
                                         value="{{ old('mobile', $person->mobile) }}">

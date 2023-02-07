@@ -23,7 +23,6 @@
                             <p class="card-text">
                                 {{ __('You are logged in!') }}
                             </p>
-
                             <div class="card-body login-card-body">
                                 <p class="login-box-msg">{{ __('Update') }}</p>
 
@@ -34,7 +33,8 @@
                                     @csrf
 
                                     <div class="input-group mb-3">
-                                        <input type="text" name="name"
+                                        <input data-toggle="tooltip" data-placement="top" title="Name" type="text"
+                                               name="name" id="name"
                                                class="form-control @error('name') is-invalid @enderror"
                                                placeholder="{{ __('Name') }}" required autocomplete="name"
                                                value="{{ old('name', $person->name) }}">
@@ -52,7 +52,8 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input type="number" name="id_number"
+                                        <input data-toggle="tooltip" data-placement="top" title="NIC Number"
+                                               type="number" name="id_number"
                                                class="form-control @error('id_number') is-invalid @enderror"
                                                placeholder="{{ __('ID Number') }}" required autocomplete="id_number"
                                                value="{{ old('id_number', $person->id_number) }}">
@@ -69,7 +70,8 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input type="date" name="dob"
+                                        <input data-toggle="tooltip" data-placement="top" title="Birthday" type="date"
+                                               name="dob"
                                                class="form-control @error('dob') is-invalid @enderror"
                                                placeholder="{{ __('Date of birth') }}" required autocomplete="dob"
                                                value="{{ old('dob', $person->dob) }}">
@@ -81,7 +83,8 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input type="number" name="age"
+                                        <input data-toggle="tooltip" data-placement="top" title="Age" type="number"
+                                               name="age"
                                                class="form-control @error('age') is-invalid @enderror"
                                                placeholder="{{ __('Age') }}" required autocomplete="age"
                                                value="{{ old('age', $person->age) }}">
@@ -98,7 +101,8 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input type="number" name="mobile"
+                                        <input data-toggle="tooltip" data-placement="top" title="Mobile Number"
+                                               type="number" name="mobile"
                                                class="form-control @error('mobile') is-invalid @enderror"
                                                placeholder="{{ __('Mobile Number') }}" required autocomplete="mobile"
                                                value="{{ old('mobile', $person->mobile) }}">
@@ -115,7 +119,8 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <select type="text" name="gender"
+                                        <select data-toggle="tooltip" data-placement="top" title="Gender" type="text"
+                                                name="gender"
                                                 class="form-control @error('gender') is-invalid @enderror"
                                                 autocomplete="religion">
                                             <option value={{ null }}>Select Gender</option>
@@ -136,7 +141,8 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <input type="text" name="address"
+                                        <input data-toggle="tooltip" data-placement="top" title="Address" type="text"
+                                               name="address"
                                                class="form-control @error('address') is-invalid @enderror"
                                                placeholder="{{ __('Address') }}" autocomplete="address"
                                                value="{{ old('address', $person->address) }}" autofocus>
@@ -153,7 +159,8 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <select type="text" name="religion"
+                                        <select data-toggle="tooltip" data-placement="top" title="Religion" type="text"
+                                                name="religion"
                                                 class="form-control @error('religion') is-invalid @enderror"
                                                 autocomplete="religion">
                                             <option value={{ null }}>Select your religion</option>
@@ -181,7 +188,8 @@
                                     </div>
 
                                     <div class="input-group mb-3">
-                                        <select type="text" name="nationality"
+                                        <select data-toggle="tooltip" data-placement="top" title="Nationality"
+                                                type="text" name="nationality"
                                                 class="form-control @error('nationality') is-invalid @enderror"
                                                 autocomplete="nationality">
                                             <option value={{ null }}>Select your nationality</option>
